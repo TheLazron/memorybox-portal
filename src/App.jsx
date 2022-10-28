@@ -9,10 +9,10 @@ function App() {
   return (
     <div>
     <video src={ VideoBg } autoPlay loop muted className='flex w-screen h-screen object-cover absolute'/>
-    <div className='flex relative p-40 gap-20'>
+    <div className="absolute bg-black opacity-70 h-screen w-screen overflow-hidden z-0"></div>
+    <div className='relative'>
         <Login/>
     </div>
-
     </div>
   )
 }
