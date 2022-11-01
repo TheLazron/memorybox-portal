@@ -17,30 +17,9 @@ import { Typography } from "@mui/material";
 import { MantineProvider } from "@mantine/core";
 import VideoBg from "..//assets/video.mp4";
 import Logo from "../assets/logo.png";
-import { IconBrandGoogle, IconBrandMeta } from "@tabler/icons";
+import { IconBrandGoogle, IconBrandMeta, IconUserPlus } from "@tabler/icons";
 
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    primary: {
-      main: "#F2A8A4",
-      darker: "#242424",
-    },
-    neutral: {
-      main: "#F2A8A4",
-      contrastText: "#242424",
-    },
-  },
-  typography: {
-    fontFamily: ["Inter", "sans-serif"].join(","),
-
-    fontSize: 10,
-  },
-});
-
-const Login = () => {
+const Signup = () => {
   return (
     <>
       <video
@@ -74,45 +53,49 @@ const Login = () => {
                 weight={700}
                 className=" text-peach text-xl w-max text-3xl"
               >
-                Login
+                Sign Up
               </Title>
               <Stack>
                 <TextInput
                   margin="normal"
-                  label="Email"
+                  label="Enter Email"
                   placeholder="Email"
+                  size="md"
+                  radius="md"
+                />
+                <TextInput
+                  margin="normal"
+                  label="Enter Username"
+                  placeholder="Username"
                   size="md"
                   radius="md"
                 />
                 <PasswordInput
                   placeholder="Password"
-                  label="Password"
+                  label="Enter Password"
+                  radius="md"
+                  size="md"
+                />
+                <PasswordInput
+                  placeholder="Password"
+                  label="Confirm Password"
                   radius="md"
                   size="md"
                 />
                 {/* ButtonContainer */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-start gap-2">
                   <Button radius="lg" className="w-3/5" size="lg" color="cyan">
-                    Sign In
+                    Sign Up
                   </Button>
-                  <div className="flex gap-3">
+                  <div className="">
                     <ActionIcon
-                      color="cyan"
+                      radius="md"
+                      className="w-3/5"
                       size="xl"
-                      radius="xl"
-                      variant="filled"
-                      className="shadow-lg"
-                    >
-                      <IconBrandGoogle size={26} />
-                    </ActionIcon>
-                    <ActionIcon
                       color="cyan"
-                      size="xl"
-                      radius="xl"
-                      variant="filled"
-                      className="shadow-lg"
+                      variant="outline"
                     >
-                      <IconBrandMeta size={26} />
+                      <IconUserPlus size={26} />
                     </ActionIcon>
                   </div>
                 </div>
@@ -125,27 +108,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-// <MantineProvider theme={{ colorScheme: "dark" }}>
-//       <div className="flex justify-between h-screen">
-//         <div className="flex-1 flex justify-center items-center">
-//           <div className="m-auto text-white text-xl flex justify-center bg-black p-10 rounded-xl w-fit">
-//             Hello
-//           </div>
-//         </div>
-
-//         <div>
-//           <Card className="w-fit p-10 px-20">
-//             <div className="py-20 bg-white rounded-xl flex flex-col">
-//               <Text className=" text-peach text-xl w-max">Login</Text>
-
-//               <TextInput margin="normal" label="Email Address" size="normal" />
-//               <TextInput label="Password" size="normal" />
-//               <br />
-//               <Button>Sign In</Button>
-//             </div>
-//           </Card>
-//         </div>
-//       </div>
-//     </MantineProvider>
+export default Signup;
