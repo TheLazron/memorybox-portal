@@ -7,6 +7,8 @@ import { ConnectWithAppPage } from "./pages/ConnectWithApp.jsx";
 import Signup from "./pages/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LiveLocation from "./components/dashboardSections/Live-location";
+import SetReminder from "./components/dashboardSections/Set-Reminder";
+import Testing from "./components/dashboardSections/testingSec";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(true);
@@ -25,6 +27,10 @@ function App() {
                   <Route
                     path={"/dashboard/live-location"}
                     element={<LiveLocation />}
+                  />
+                  <Route
+                    path={"/dashboard/set-reminders"}
+                    element={<SetReminder />}
                   />
                 </Route>
               </>,
