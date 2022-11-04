@@ -79,11 +79,11 @@ const SetReminder = (props) => {
           <ShowReminders reminderData={reminderData} />
         )}
 
-        {/* <div className="mt-12">
+        <div className="mt-12">
           <Title className="mb-12">Add New Reminder</Title>
 
           <AddReminder addReminder={addReminder} />
-        </div> */}
+        </div>
       </div>
     </>
   );

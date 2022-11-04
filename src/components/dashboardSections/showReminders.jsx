@@ -23,7 +23,7 @@ const ReminderData = [
   },
   {
     id: 2,
-    title: "title2",
+    title: "title4",
     description: "description2",
     time: "4:40",
     date: "12th Decemeber 2022",
@@ -91,9 +91,9 @@ const CardComponent = ({ card, onSelect }) => {
   );
 };
 
-const ShowReminders = () => {
+const ShowReminders = (props) => {
   const [selectedCard, setSelectedCard] = useState(null);
-
+  const ReminderData = [...props.reminderData];
   return (
     <MotionConfig
       transition={{ duration: 0.85, type: "spring", ease: "easeInOut" }}
@@ -105,7 +105,9 @@ const ShowReminders = () => {
               <CardComponent
                 key={card.id}
                 card={card}
-                onSelect={() => setSelectedCard(card)}
+                onSelect={() => {
+                  setSelectedCard(card);
+                }}
               />
             );
           })}

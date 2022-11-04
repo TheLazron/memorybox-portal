@@ -19,23 +19,21 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/connect-app" element={<ConnectWithAppPage />} />
-        {isLoggedIn
-          ? [
-              <>
-                <Route path="/dashboard" element={<Dashboard />}>
-                  <Route path={"/dashboard"} element={<Text>Dashboard</Text>} />
-                  <Route
-                    path={"/dashboard/live-location"}
-                    element={<LiveLocation />}
-                  />
-                  <Route
-                    path={"/dashboard/set-reminders"}
-                    element={<SetReminder />}
-                  />
-                </Route>
-              </>,
-            ]
-          : null}
+        {isLoggedIn ? (
+          <>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path={"/dashboard"} element={<Text>Dashboard</Text>} />
+              <Route
+                path={"/dashboard/live-location"}
+                element={<LiveLocation />}
+              />
+              <Route
+                path={"/dashboard/set-reminders"}
+                element={<SetReminder />}
+              />
+            </Route>
+          </>
+        ) : null}
       </Routes>
     </Router>
   );
