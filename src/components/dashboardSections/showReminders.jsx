@@ -206,6 +206,9 @@ const ShowReminders = (props) => {
           </motion.div>
         )}
       </AnimatePresence>
+      {selectedCard && (
+        <div className="w-screen h-screen bg-white absolute top-0 left-0 opacity-50"></div>
+      )}
     </MotionConfig>
   );
 };

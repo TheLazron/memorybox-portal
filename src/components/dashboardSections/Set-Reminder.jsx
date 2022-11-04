@@ -19,6 +19,8 @@ import {
 } from "firebase/firestore";
 import dateFormat, { masks } from "dateformat";
 import ShowReminders from "./showReminders";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Firebase fetching
 const firebaseConfig = {
@@ -37,6 +39,8 @@ const SetReminder = (props) => {
   const [reminderData, setReminderData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const notify = () => toast("✅Reminder Added!");
+
   const addReminder = async (values) => {
     let time = values.time.toLocaleString();
     const formatedDate = dateFormat(time, "dS mmmm yyyy");
@@ -52,6 +56,7 @@ const SetReminder = (props) => {
       time: formatedTime,
     });
     console.log("Document written with ID: ", docRef.id);
+    notify();
   };
 
   useEffect(() => {
@@ -72,6 +77,7 @@ const SetReminder = (props) => {
     <>
       <div className="px-7 font-poppins flex flex-col w-full">
         {/* Reminder Window */}
+        <ToastContainer />
         <Title className="mb-16 mt-8">Set Reminders</Title>
         {loading ? (
           <Loader color="gray" className="self-center" />
