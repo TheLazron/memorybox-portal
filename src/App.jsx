@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LiveLocation from "./components/dashboardSections/Live-location";
 import SetReminder from "./components/dashboardSections/Set-Reminder";
 import Testing from "./components/dashboardSections/testingSec";
+import UpdatePrescription from "./components/dashboardSections/Update-Prescription";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(true);
@@ -30,6 +31,10 @@ function App() {
               <Route
                 path={"/dashboard/set-reminders"}
                 element={<SetReminder />}
+              />
+              <Route
+                path={"/dashboard/update-prescription"}
+                element={<UpdatePrescription />}
               />
             </Route>
           </>

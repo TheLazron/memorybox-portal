@@ -44,7 +44,7 @@ const CardComponent = ({ card, onSelect }) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2.8 }}
+          transition={{ duration: 0.4 }}
           className="flex justify-between items-center text-white"
         >
           <motion.div className="flex items-center gap-2">

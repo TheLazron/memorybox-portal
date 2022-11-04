@@ -45,7 +45,7 @@ const SetReminder = (props) => {
     let time = values.time.toLocaleString();
     const formatedDate = dateFormat(time, "dS mmmm yyyy");
     const formatedTime = dateFormat(time, "h:mm TT");
-    console.log(formatedTime);
+    console.log("data", values);
 
     const docRef = await addDoc(collection(db, "reminders"), {
       title: values.title,
@@ -55,7 +55,17 @@ const SetReminder = (props) => {
       date: formatedDate,
       time: formatedTime,
     });
+    const newReminder = {
+      title: values.title,
+      description: values.description,
+      priority: values.priority,
+      mediaUrl: null,
+      date: formatedDate,
+      time: formatedTime,
+      id: docRef.id,
+    };
     console.log("Document written with ID: ", docRef.id);
+    setReminderData((oldArray) => [newReminder, ...oldArray]);
     notify();
   };
 

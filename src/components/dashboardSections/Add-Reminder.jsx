@@ -41,8 +41,12 @@ const AddReminder = ({ addReminder }) => {
     <Card radius="lg" shadow="lg" withBorder>
       <div className="p-2">
         <form
-          onSubmit={addForm.onSubmit((values) => addReminder(values))}
-          className="flex flex-col font-poppins border-8 overflow-y-visible gap-4 "
+          onSubmit={addForm.onSubmit((values) => {
+            addReminder(values);
+            addForm.reset();
+            addForm.resetTouched();
+          })}
+          className="flex flex-col font-poppins border-8 overflow-y-visible gap-4 h-max justify-center"
         >
           <TextInput
             radius="lg"
@@ -76,12 +80,12 @@ const AddReminder = ({ addReminder }) => {
               radius="lg"
               clearable
               className="flex-1"
-              {...addForm.getInputProps("time")}
+              {...addForm.getInputProps("date")}
             />
           </div>
           <div className="flex items-center self-end gap-4">
             <Select
-              dropdownPosition="down"
+              dropdownPosition="flip"
               placeholder="Importance"
               color="yellow"
               size="lg"
@@ -95,16 +99,21 @@ const AddReminder = ({ addReminder }) => {
               className="w-fit self-end rounded-xl"
               {...addForm.getInputProps("priority")}
             />
-
-            <ActionIcon
-              radius="lg"
-              variant="filled"
-              color="blue"
-              size="xl"
-              type="submit"
+            <motion.div
+              whileHover={{ scale: 1.5 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <IconPlus />
-            </ActionIcon>
+              <ActionIcon
+                radius="lg"
+                variant="filled"
+                color="blue"
+                size="xl"
+                type="submit"
+              >
+                <IconPlus />
+              </ActionIcon>
+            </motion.div>
           </div>
           <Space size="xl" className="h-28" />
         </form>
