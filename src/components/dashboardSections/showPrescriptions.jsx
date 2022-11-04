@@ -7,7 +7,7 @@ import {
   IconEdit,
 } from "@tabler/icons";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PrescriptionElement from "../prescription-element";
 import {
   Card,
@@ -18,6 +18,7 @@ import {
   Stack,
   ActionIcon,
 } from "@mantine/core";
+import { PrescriptionContext } from "./Update-Prescription";
 
 const MotionPrescriptionElement = motion(PrescriptionElement);
 
@@ -115,6 +116,8 @@ const CardComponent = ({ card, onSelect }) => {
 const ShowPrescriptions = (props) => {
   const [selectedCard, setSelectedCard] = useState(null);
   const prescriptionData = [...props.prescriptionData];
+  const { currentPrescription, setCurrentPrescription } =
+    useContext(PrescriptionContext);
 
   return (
     <MotionConfig
@@ -244,7 +247,12 @@ const ShowPrescriptions = (props) => {
                 </motion.div>
               </motion.div>
               <motion.div className="flex gap-2 w-full justify-end">
-                <ActionIcon radius="xl" variant="filled" size="xl">
+                <ActionIcon
+                  radius="xl"
+                  variant="filled"
+                  size="xl"
+                  onClick={() => setCurrentPrescription(selectedCard)}
+                >
                   {<IconEdit />}
                 </ActionIcon>
                 <ActionIcon
