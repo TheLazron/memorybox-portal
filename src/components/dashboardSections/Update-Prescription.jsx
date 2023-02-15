@@ -18,6 +18,15 @@ import ShowPrescriptions from "./showPrescriptions";
 import AddPrescription from "./Add-Prescription";
 
 // Firebase fetching
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBN4h1eKsfYPJOmtuLSf2RPMYrC2fcmXsw",
+//   authDomain: "zunodb.firebaseapp.com",
+//   databaseURL: "https://zunodb-default-rtdb.europe-west1.firebasedatabase.app",
+//   projectId: "zunodb",
+//   storageBucket: "zunodb.appspot.com",
+//   messagingSenderId: "144058751754",
+//   appId: "1:144058751754:web:a0cbd7a3760a65a8c7b8f3",
+// };
 const firebaseConfig = {
   apiKey: "AIzaSyBURkT8NXBIUV5iqXWSGyuV12KgEpFuvFM",
   authDomain: "hacky-e0462.firebaseapp.com",

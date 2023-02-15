@@ -129,7 +129,7 @@ const NavigationPane = (props) => {
                 Raman Rishi
               </Title>
               <Text>Age: 67</Text>
-              <Text>Severe Alzheimer, Dimentia</Text>
+              <Text>Severe Alzheimer, Dementia</Text>
             </div>
           </div>
           <Text>

@@ -28,6 +28,15 @@ import {
 import { Image } from "@mantine/core";
 import { iconPerson } from "../../assets/markerIcon";
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBN4h1eKsfYPJOmtuLSf2RPMYrC2fcmXsw",
+//   authDomain: "zunodb.firebaseapp.com",
+//   databaseURL: "https://zunodb-default-rtdb.europe-west1.firebasedatabase.app",
+//   projectId: "zunodb",
+//   storageBucket: "zunodb.appspot.com",
+//   messagingSenderId: "144058751754",
+//   appId: "1:144058751754:web:a0cbd7a3760a65a8c7b8f3",
+// };
 const firebaseConfig = {
   apiKey: "AIzaSyBURkT8NXBIUV5iqXWSGyuV12KgEpFuvFM",
   authDomain: "hacky-e0462.firebaseapp.com",
@@ -54,15 +63,29 @@ const LiveLocation = (props) => {
       theme: "colored",
     });
   };
+  const notifyInside = () => {
+    toast.success("Patient has returned inside the safe space", {
+      position: "top-right",
+      autoClose: false,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   const [currentLocation, setCurrentLocation] = useState({
-    latitude: 28.7330199,
-    longitude: 77.1188811,
+    latitude: 28.544516340429436,
+    longitude: 77.33354453739945,
   });
 
+  const [outside, setOutside] = useState(false);
+
   let circleCenter = {
-    lat: 28.7330199,
-    lng: 77.1188811,
+    lat: 28.544516340429436,
+    lng: 77.33354453739945,
   };
 
   useEffect(() => {
@@ -95,8 +118,11 @@ const LiveLocation = (props) => {
       if (
         circleCenter.distanceTo(markerPosition) > circleRef.current._mRadius
       ) {
+        setOutside(true);
         notifyOutside();
       } else {
+        setOutside(false);
+        // notifyInside();
         console.log("inside circle");
       }
     }
@@ -122,6 +148,7 @@ const LiveLocation = (props) => {
           zoom={18}
           scrollWheelZoom={false}
           className="w-full h-2/3 rounded-3xl"
+          dragging={true}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -143,7 +170,7 @@ const LiveLocation = (props) => {
               lng: circleCenter.lng,
             }}
             color="green"
-            radius={20}
+            radius={30}
             fillOpacity={0.5}
           ></Circle>
         </MapContainer>

@@ -11,14 +11,14 @@ import SetReminder from "./components/dashboardSections/Set-Reminder";
 import Testing from "./components/dashboardSections/testingSec";
 import UpdatePrescription from "./components/dashboardSections/Update-Prescription";
 import MonitorPerformance from "./components/dashboardSections/MonitorPerformance";
-
+import component from "./pages/a";
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(true);
 
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<component />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/connect-app" element={<ConnectWithAppPage />} />
         {isLoggedIn ? (
